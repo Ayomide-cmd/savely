@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#071c19" />
+    <title>Savely — Personal finance, made clear</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#"><span class="brand-mark">s</span><span>Savely</span></a>
+        <nav class="nav" aria-label="Main navigation">
+          <button class="nav-item active" data-view="overview"><span>◌</span>Overview</button>
+          <button class="nav-item" data-view="transactions"><span>↕</span>Transactions</button>
+          <button class="nav-item" data-view="budgets"><span>◔</span>Budgets</button>
+          <button class="nav-item" data-view="insights"><span>✦</span>Insights</button>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="mini-card"><span class="mini-icon">✦</span><div><strong>Smart money habits</strong><p>You're on track this month.</p></div></div>
+          <button class="profile"><span class="avatar">AO</span><span><strong>Ayomide O.</strong><small>Personal account</small></span><b>⌄</b></button>
+        </div>
+      </aside>
+      <main>
+        <header class="topbar">
+          <button class="mobile-menu" aria-label="Open menu">☰</button>
+          <div><p class="eyebrow" id="today"></p><h1 id="view-title">Good morning, Ayomide <span>✦</span></h1></div>
+          <div class="top-actions"><button class="icon-btn" aria-label="Notifications">♧<i></i></button><button class="add-btn" id="open-transaction">+ Add transaction</button></div>
+        </header>
+
+        <section class="view active" id="overview">
+          <div class="hero-row">
+            <article class="balance-card">
+              <div class="balance-head"><p>Total balance</p><button aria-label="Balance options">•••</button></div>
+              <h2 id="total-balance">₦0</h2>
+              <div class="balance-footer"><span class="up">↗ <b id="balance-change">0%</b> from last month</span><span>•••• 8038</span></div>
+              <div class="orb orb-one"></div><div class="orb orb-two"></div>
+            </article>
+            <article class="income-card"><div class="card-icon income-icon">↗</div><p>Income</p><h3 id="income-total">₦0</h3><span class="up">+12.5% <em>vs. last month</em></span><div class="sparkline income-spark"></div></article>
+            <article class="income-card"><div class="card-icon expense-icon">↙</div><p>Expenses</p><h3 id="expense-total">₦0</h3><span class="down">+4.2% <em>vs. last month</em></span><div class="sparkline expense-spark"></div></article>
+          </div>
+
+          <div class="section-heading"><div><h2>Spending overview</h2><p>Where your money went this month</p></div><select id="month-select" aria-label="Month"><option>This month</option><option>Last month</option></select></div>
+          <div class="analytics-grid">
+            <article class="chart-card"><div class="chart-top"><div class="legend"><span><i class="legend-dot dark"></i>Spending</span><span><i class="legend-dot light"></i>Budget</span></div><span class="chart-total" id="chart-total">₦0</span></div><div class="bar-chart" id="bar-chart" aria-label="Weekly spending and budget chart"></div></article>
+            <article class="category-card"><div class="category-head"><div><h3>Spending by category</h3><p>Based on this month</p></div><button class="more" aria-label="Category options">•••</button></div><div class="donut-wrap"><div class="donut" id="donut"><div><b id="donut-total">₦0</b><span>Total spent</span></div></div><div class="donut-legend" id="donut-legend"></div></div></article>
+          </div>
+
+          <div class="section-heading transactions-heading"><div><h2>Recent transactions</h2><p>Your latest activity</p></div><button class="text-btn" data-view-target="transactions">View all <span>→</span></button></div>
+          <div class="transactions-card"><div class="transaction-list" id="recent-list"></div></div>
+        </section>
+
+        <section class="view" id="transactions">
+          <div class="section-heading page-heading"><div><h2>Transactions</h2><p>Track every movement in one place.</p></div><button class="add-btn" id="open-transaction-2">+ Add transaction</button></div>
+          <div class="filters"><select id="type-filter"><option value="all">All activity</option><option value="expense">Expenses</option><option value="income">Income</option></select><select id="category-filter"><option value="all">All categories</option></select><input id="search" placeholder="Search transactions" /></div>
+          <div class="transactions-card"><div class="transaction-list all-list" id="all-list"></div></div>
+        </section>
+
+        <section class="view" id="budgets">
+          <div class="section-heading page-heading"><div><h2>Budgets</h2><p>Give every naira a clear purpose.</p></div><button class="add-btn" id="open-budget">+ Create budget</button></div>
+          <div class="budget-summary"><div><span class="eyebrow">Monthly budgets</span><h2 id="budget-progress">0% funded</h2></div><p id="budget-copy">Set budgets for the things that matter.</p></div>
+          <div class="budget-grid" id="budget-list"></div>
+        </section>
+
+        <section class="view" id="insights">
+          <div class="section-heading page-heading"><div><h2>Insights</h2><p>A clearer picture of your financial habits.</p></div></div>
+          <div class="insight-hero"><span>✦</span><div><p class="eyebrow">SAVELY INSIGHT</p><h2>You're building a stronger financial rhythm.</h2><p id="insight-copy">Your spending is calm and considered this month.</p></div></div>
+          <div class="insight-grid" id="insight-grid"></div>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="transaction-modal"><form method="dialog" id="transaction-form"><button class="close" value="cancel" aria-label="Close">×</button><p class="eyebrow">NEW ACTIVITY</p><h2>Add a transaction</h2><div class="type-toggle"><button type="button" class="selected" data-type="expense">Expense</button><button type="button" data-type="income">Income</button></div><label>Description<input required name="name" placeholder="e.g. Sunday groceries" /></label><label>Amount (₦)<input required name="amount" type="number" min="1" placeholder="0" /></label><label>Category<select required name="category" id="transaction-category"></select></label><label>Date<input required name="date" type="date" /></label><button class="save-btn" value="default">Save transaction</button></form></dialog>
+    <dialog id="budget-modal"><form method="dialog" id="budget-form"><button class="close" value="cancel" aria-label="Close">×</button><p class="eyebrow">NEW BUDGET</p><h2>Set a spending limit</h2><label>Category<select required name="category" id="budget-category"></select></label><label>Monthly limit (₦)<input required name="limit" type="number" min="1" placeholder="0" /></label><button class="save-btn" value="default">Create budget</button></form></dialog>
+    <script src="app.js"></script>
+  </body>
+</html>
