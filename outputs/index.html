@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="profile.css" />
   </head>
   <body>
     <div class="app-shell">
@@ -22,13 +23,13 @@
         </nav>
         <div class="sidebar-bottom">
           <div class="mini-card"><span class="mini-icon">✦</span><div><strong>Smart money habits</strong><p>You're on track this month.</p></div></div>
-          <button class="profile"><span class="avatar">AO</span><span><strong>Ayomide O.</strong><small>Personal account</small></span><b>⌄</b></button>
+          <button class="profile" id="open-profile"><span class="avatar" id="profile-initials">AO</span><span><strong id="profile-name">Ayomide O.</strong><small>Local private workspace</small></span><b>⌄</b></button>
         </div>
       </aside>
       <main>
         <header class="topbar">
           <button class="mobile-menu" aria-label="Open menu">☰</button>
-          <div><p class="eyebrow" id="today"></p><h1 id="view-title">Good morning, Ayomide <span>✦</span></h1></div>
+          <div><p class="eyebrow" id="today"></p><h1 id="view-title">Good morning, <span id="greeting-name">Ayomide</span> <i>✦</i></h1></div>
           <div class="top-actions"><button class="icon-btn" aria-label="Notifications">♧<i></i></button><button class="add-btn" id="open-transaction">+ Add transaction</button></div>
         </header>
 
@@ -76,6 +77,7 @@
 
     <dialog id="transaction-modal"><form method="dialog" id="transaction-form"><button class="close" value="cancel" aria-label="Close">×</button><p class="eyebrow">NEW ACTIVITY</p><h2>Add a transaction</h2><div class="type-toggle"><button type="button" class="selected" data-type="expense">Expense</button><button type="button" data-type="income">Income</button></div><label>Description<input required name="name" placeholder="e.g. Sunday groceries" /></label><label>Amount (₦)<input required name="amount" type="number" min="1" placeholder="0" /></label><label>Category<select required name="category" id="transaction-category"></select></label><label>Date<input required name="date" type="date" /></label><button class="save-btn" value="default">Save transaction</button></form></dialog>
     <dialog id="budget-modal"><form method="dialog" id="budget-form"><button class="close" value="cancel" aria-label="Close">×</button><p class="eyebrow">NEW BUDGET</p><h2>Set a spending limit</h2><label>Category<select required name="category" id="budget-category"></select></label><label>Monthly limit (₦)<input required name="limit" type="number" min="1" placeholder="0" /></label><button class="save-btn" value="default">Create budget</button></form></dialog>
+    <dialog id="profile-modal"><form method="dialog" id="profile-form"><button class="close" value="cancel" aria-label="Close">×</button><div class="profile-modal-mark">s</div><p class="eyebrow">YOUR PRIVATE WORKSPACE</p><h2>Make Savely yours</h2><p class="modal-copy">Your profile and financial data stay in this browser. Cloud sync can be connected later.</p><label>Your name<input required name="name" maxlength="38" placeholder="e.g. Ayomide O." /></label><label>Monthly savings goal (₦)<input required name="goal" type="number" min="0" placeholder="e.g. 100000" /></label><button class="save-btn" value="default">Save my workspace</button><button class="secondary-btn" value="cancel">Cancel</button></form></dialog>
     <script src="app.js"></script>
   </body>
 </html>

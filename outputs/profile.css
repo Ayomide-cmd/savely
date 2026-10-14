@@ -1,0 +1,4 @@
+.topbar h1 i { color: #e6b229; font-size: 17px; font-style: normal; }
+.profile-modal-mark { display: grid; place-items: center; width: 38px; height: 38px; margin-bottom: 18px; border-radius: 11px; background: #d9f06a; color: #0a332c; font: italic 30px Georgia, serif; }
+.modal-copy { margin: -10px 0 17px; color: #70817d; font-size: 11px; line-height: 1.5; }
+.secondary-btn { width: 100%; padding: 11px; border: 0; background: transparent; color: #58706a; font: 700 11px Manrope, sans-serif; cursor: pointer; }
